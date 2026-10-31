@@ -1,42 +1,221 @@
 <section class="hero" id="top" aria-labelledby="hero-title">
   <div class="hero-copy">
-    <p class="eyebrow hero-in"><span class="status-dot"></span> {{ profile.title }} / {{ profile.role }}</p>
-    <h1 id="hero-title" class="hero-in delay-one">Building thoughtful<br><span>digital experiences.</span></h1>
+    <p class="eyebrow hero-in">
+      <span class="status-dot"></span> {{ profile.name }} / {{ profile.location }}
+    </p>
+    <h1 id="hero-title" class="hero-in delay-one">
+      {{ profile.role }}<br /><span>building thoughtful web experiences.</span>
+    </h1>
     <p class="hero-intro hero-in delay-two">{{ profile.intro }}</p>
-    <div class="hero-actions hero-in delay-two"><a class="cta primary" href="#projects">View My Work <span aria-hidden="true">↗</span></a><a class="cta secondary" href="#contact">Contact Me <span aria-hidden="true">↗</span></a></div>
-    <div class="hero-stack hero-in delay-two"><span>WORKING WITH</span><div><span>Angular</span><i></i><span>.NET</span><i></i><span>SQL Server</span></div></div>
+    <div class="hero-actions hero-in delay-two">
+      <a class="cta primary" href="#projects">View My Work <span aria-hidden="true">↗</span></a
+      ><a class="cta secondary" href="#contact">Contact Me <span aria-hidden="true">↗</span></a>
+    </div>
+    <div class="hero-stack hero-in delay-two">
+      <span>WORKING WITH</span>
+      <div><span>Angular</span><i></i><span>.NET</span><i></i><span>SQL Server</span></div>
+    </div>
   </div>
   <div class="hero-art hero-in delay-two" aria-hidden="true">
-    <div class="orbit orbit-one"></div><div class="orbit orbit-two"></div><div class="orbit-dot"></div>
-    <div class="code-window"><div class="window-top"><div class="window-dots"><i></i><i></i><i></i></div><span>developer.ts</span><span>✳</span></div><div class="code-body"><p><span class="line">01</span> <span class="purple">const</span> developer = &#123;</p><p><span class="line">02</span> &nbsp;role: <span class="blue">'Software Developer'</span>,</p><p><span class="line">03</span> &nbsp;focus: <span class="blue">'Full-stack'</span>,</p><p><span class="line">04</span> &nbsp;mindset: <span class="blue">'Keep learning'</span></p><p><span class="line">05</span> &#125;;<span class="cursor"></span></p></div><div class="window-bottom"><span><b></b> READY TO BUILD</span><span>✧</span></div></div>
+    <div class="orbit orbit-one"></div>
+    <div class="orbit orbit-two"></div>
+    <div class="orbit-dot"></div>
+    <div class="code-window">
+      <div class="window-top">
+        <div class="window-dots"><i></i><i></i><i></i></div>
+        <span>developer.ts</span><span>✳</span>
+      </div>
+      <div class="code-body">
+        <p><span class="line">01</span> <span class="purple">const</span> developer = &#123;</p>
+        <p>
+          <span class="line">02</span> &nbsp;role: <span class="blue">'Software Developer'</span>,
+        </p>
+        <p><span class="line">03</span> &nbsp;focus: <span class="blue">'Full-stack'</span>,</p>
+        <p><span class="line">04</span> &nbsp;mindset: <span class="blue">'Keep learning'</span></p>
+        <p><span class="line">05</span> &#125;;<span class="cursor"></span></p>
+      </div>
+      <div class="window-bottom">
+        <span><b></b> READY TO BUILD</span><span>✧</span>
+      </div>
+    </div>
     <div class="art-label"><span>✦</span> CRAFTED WITH PURPOSE</div>
   </div>
-  <div class="hero-bottom"><span>SCROLL TO EXPLORE</span><span class="scroll-line"></span><span>01 — 07</span></div>
+  <div class="hero-bottom">
+    <span>SCROLL TO EXPLORE</span><span class="scroll-line"></span><span>01 — 06</span>
+  </div>
 </section>
 <section id="about" class="section about" appReveal aria-labelledby="about-title">
   <div class="section-label"><span>01 / ABOUT</span><span class="label-line"></span></div>
-  <div class="about-grid"><div><h2 id="about-title">Curious by nature.<br><em>Developer by choice.</em></h2><p class="section-lead">A little about me and the work I enjoy.</p></div><div class="about-copy">@for (paragraph of profile.about; track paragraph) {<p>{{ paragraph }}</p>}<div class="about-signature"><span class="signature-mark">✳</span><span>Learning, building,<br><strong>and always improving.</strong></span></div></div></div>
+  <div class="about-grid">
+    <div>
+      <h2 id="about-title">Curious by nature.<br /><em>Developer by choice.</em></h2>
+      <p class="section-lead">A little about me and the work I enjoy.</p>
+    </div>
+    <div class="about-copy">
+      @for (paragraph of profile.about; track paragraph) {
+        <p>{{ paragraph }}</p>
+      }
+      <div class="about-signature">
+        <span class="signature-mark">✳</span
+        ><span>Learning, building,<br /><strong>and always improving.</strong></span>
+      </div>
+    </div>
+  </div>
 </section>
 <section id="skills" class="section skills-section" appReveal aria-labelledby="skills-title">
- <div class="section-label"><span>02 / SKILLS</span><span class="label-line"></span></div>
- <div class="section-head"><div><h2 id="skills-title">A toolkit for <em>what’s next.</em></h2><p class="section-lead">The technologies and practices I’m growing with.</p></div><span class="section-index">THE TOOLKIT / 05</span></div>
- <div class="skills-grid">@for (group of skills; track group.name) {<article class="skill-card"><div class="card-top"><span class="card-icon" aria-hidden="true">{{ group.number === '01' ? '⌘' : group.number === '02' ? '{ }' : group.number === '03' ? '◫' : group.number === '04' ? '⌁' : '✳' }}</span><span class="card-number">{{ group.number }} / 05</span></div><h3>{{ group.name }}</h3><div class="badges">@for (skill of group.skills; track skill) {<app-technology-badge>{{ skill }}</app-technology-badge>}</div>@if(group.note){<p class="skill-note">{{ group.note }}</p>}</article>}</div>
+  <div class="section-label"><span>02 / SKILLS</span><span class="label-line"></span></div>
+  <div class="section-head">
+    <div>
+      <h2 id="skills-title">A toolkit for <em>what’s next.</em></h2>
+      <p class="section-lead">The technologies and practices I’m growing with.</p>
+    </div>
+    <span class="section-index">THE TOOLKIT / 05</span>
+  </div>
+  <div class="skills-grid">
+    @for (group of skills; track group.name) {
+      <article class="skill-card">
+        <div class="card-top">
+          <span class="card-icon" aria-hidden="true">{{
+            group.number === '01'
+              ? '⌘'
+              : group.number === '02'
+                ? '{ }'
+                : group.number === '03'
+                  ? '◫'
+                  : group.number === '04'
+                    ? '⌁'
+                    : '✳'
+          }}</span
+          ><span class="card-number">{{ group.number }} / 05</span>
+        </div>
+        <h3>{{ group.name }}</h3>
+        <div class="badges">
+          @for (skill of group.skills; track skill) {
+            <app-technology-badge>{{ skill }}</app-technology-badge>
+          }
+        </div>
+        @if (group.note) {
+          <p class="skill-note">{{ group.note }}</p>
+        }
+      </article>
+    }
+  </div>
 </section>
-<section id="experience" class="section experience-section" appReveal aria-labelledby="experience-title">
- <div class="section-label"><span>03 / EXPERIENCE</span><span class="label-line"></span></div>
- <div class="section-head"><div><h2 id="experience-title">Experience in <em>practice.</em></h2><p class="section-lead">Learning through real-world work and collaboration.</p></div></div>
- <article class="experience-card"><div class="experience-meta"><span class="work-icon" aria-hidden="true">↗</span><span class="present"><i></i>{{ experience.period }}</span></div><div><p class="company">{{ experience.company }}</p><h3>{{ experience.role }}</h3><ul>@for (item of experience.highlights; track item) {<li>{{ item }}</li>}</ul></div></article>
+<section
+  id="experience"
+  class="section experience-section"
+  appReveal
+  aria-labelledby="experience-title"
+>
+  <div class="section-label"><span>03 / EXPERIENCE</span><span class="label-line"></span></div>
+  <div class="section-head">
+    <div>
+      <h2 id="experience-title">Experience in <em>practice.</em></h2>
+      <p class="section-lead">Learning through real-world work and collaboration.</p>
+    </div>
+  </div>
+  <article class="experience-card">
+    <div class="experience-meta">
+      <span class="work-icon" aria-hidden="true">↗</span
+      ><span class="present"><i></i>{{ experience.period }}</span>
+    </div>
+    <div>
+      <p class="company">{{ experience.company }}</p>
+      <h3>{{ experience.role }}</h3>
+      <ul>
+        @for (item of experience.highlights; track item) {
+          <li>{{ item }}</li>
+        }
+      </ul>
+    </div>
+  </article>
 </section>
 <section id="projects" class="section projects-section" appReveal aria-labelledby="projects-title">
- <div class="section-label"><span>04 / PROJECTS</span><span class="label-line"></span></div>
- <div class="section-head"><div><h2 id="projects-title">Ideas in <em>the pipeline.</em></h2><p class="section-lead">A selection of projects I plan to build and explore.</p></div><span class="section-index">SELECTED CONCEPTS / 03</span></div>
- <div class="project-grid">@for(project of projects; track project.number){<article class="project-card"><div class="project-visual visual-{{ project.number }}" aria-hidden="true"><div class="visual-grid"></div><span class="visual-code">{{ project.number === '01' ? '01 / PEOPLE' : project.number === '02' ? '02 / INVENTORY' : '03 / WORKFLOW' }}</span><span class="visual-symbol">{{ project.number === '01' ? '◉' : project.number === '02' ? '▦' : '◈' }}</span><span class="visual-corner">↗</span></div><div class="project-content"><div class="project-top"><span class="project-number">PROJECT / {{ project.number }}</span><span class="planned"><i></i>{{ project.status }}</span></div><h3>{{ project.title }}</h3><p>{{ project.description }}</p><p class="features-label">PLANNED FEATURES</p><p class="features">{{ project.features.join(' · ') }}</p><div class="project-stack">@for(tech of project.stack; track tech){<app-technology-badge>{{ tech }}</app-technology-badge>}</div></div></article>}</div>
+  <div class="section-label"><span>04 / PROJECTS</span><span class="label-line"></span></div>
+  <div class="section-head">
+    <div>
+      <h2 id="projects-title">Ideas in <em>the pipeline.</em></h2>
+      <p class="section-lead">A selection of projects I plan to build and explore.</p>
+    </div>
+    <span class="section-index">SELECTED CONCEPTS / 03</span>
+  </div>
+  <div class="project-grid">
+    @for (project of projects; track project.number) {
+      <article class="project-card">
+        <div class="project-visual visual-{{ project.number }}" aria-hidden="true">
+          <div class="visual-grid"></div>
+          <span class="visual-code">{{
+            project.number === '01'
+              ? '01 / PEOPLE'
+              : project.number === '02'
+                ? '02 / INVENTORY'
+                : '03 / WORKFLOW'
+          }}</span
+          ><span class="visual-symbol">{{
+            project.number === '01' ? '◉' : project.number === '02' ? '▦' : '◈'
+          }}</span>
+        </div>
+        <div class="project-content">
+          <div class="project-top">
+            <span class="project-number">PROJECT / {{ project.number }}</span
+            ><span class="planned"><i></i>{{ project.status }}</span>
+          </div>
+          <h3>{{ project.title }}</h3>
+          <p>{{ project.description }}</p>
+          <p class="features-label">PLANNED FEATURES</p>
+          <p class="features">{{ project.features.join(' · ') }}</p>
+          <div class="project-stack">
+            @for (tech of project.stack; track tech) {
+              <app-technology-badge>{{ tech }}</app-technology-badge>
+            }
+          </div>
+        </div>
+      </article>
+    }
+  </div>
 </section>
-<section id="education" class="section education-section" appReveal aria-labelledby="education-title">
- <div class="section-label"><span>05 / EDUCATION</span><span class="label-line"></span></div>
- <div class="section-head"><div><h2 id="education-title">A foundation for <em>growth.</em></h2><p class="section-lead">The learning behind the work.</p></div></div>
- <div class="education-list">@for(item of education; track item.year){<article class="education-item"><span class="education-year">{{ item.year }}</span><div><h3>{{ item.degree }}</h3><p>{{ item.institution }}</p></div><span class="education-icon" aria-hidden="true">↗</span></article>}</div>
+<section
+  id="education"
+  class="section education-section"
+  appReveal
+  aria-labelledby="education-title"
+>
+  <div class="section-label"><span>05 / EDUCATION</span><span class="label-line"></span></div>
+  <div class="section-head">
+    <div>
+      <h2 id="education-title">A foundation for <em>growth.</em></h2>
+      <p class="section-lead">The learning behind the work.</p>
+    </div>
+  </div>
+  <div class="education-list">
+    @for (item of education; track item.year) {
+      <article class="education-item">
+        <span class="education-year">{{ item.year }}</span>
+        <div>
+          <h3>{{ item.degree }}</h3>
+          <p>{{ item.institution }}</p>
+        </div>
+        <span class="education-icon" aria-hidden="true">↗</span>
+      </article>
+    }
+  </div>
 </section>
 <section id="contact" class="section contact-section" appReveal aria-labelledby="contact-title">
- <div class="contact-panel"><div class="contact-orbit" aria-hidden="true"></div><div class="contact-content"><p class="contact-label"><span></span> 06 / GET IN TOUCH</p><h2 id="contact-title">Let’s build something<br><em>meaningful.</em></h2><p>Interested in connecting? Find me on the platforms below.</p><div class="contact-links">@for(link of social; track link.label){<a [href]="link.url" target="_blank" rel="noopener noreferrer">{{ link.label }} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab; profile pending verification)</span></a>}</div><p class="verification-note">Profile links provided; awaiting verification.</p></div><div class="contact-deco" aria-hidden="true">✳</div></div>
+  <div class="contact-panel">
+    <div class="contact-orbit" aria-hidden="true"></div>
+    <div class="contact-content">
+      <p class="contact-label"><span></span> 06 / GET IN TOUCH</p>
+      <h2 id="contact-title">Let’s build something<br /><em>meaningful.</em></h2>
+      <p>Interested in connecting? Find me on the platforms below.</p>
+      <div class="contact-links">
+        @for (link of social; track link.label) {
+          <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+            >{{ link.label }} <span aria-hidden="true">↗</span
+            ><span class="sr-only"> (opens in a new tab)</span></a
+          >
+        }
+      </div>
+    </div>
+    <div class="contact-deco" aria-hidden="true">✳</div>
+  </div>
 </section>

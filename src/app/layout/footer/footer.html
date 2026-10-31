@@ -1,1 +1,25 @@
-<footer><app-page-container><div class="footer-inner"><div><a class="footer-name" routerLink="/" fragment="top">Portfolio<span>.</span></a><p>Built with care and curiosity.</p></div><div class="footer-right"><div class="social">@for(link of social; track link.label){<a [href]="link.url" target="_blank" rel="noopener noreferrer">{{ link.label }} <span aria-hidden="true">↗</span><span class="sr-only"> (opens in a new tab; profile pending verification)</span></a>}</div><a class="back-top" routerLink="/" fragment="top">Back to top ↑</a></div></div><div class="footer-bottom"><span>© {{ year }} Portfolio</span><span>DESIGNED WITH PURPOSE</span></div></app-page-container></footer>
+<footer>
+  <app-page-container
+    ><div class="footer-inner">
+      <div>
+        <a class="footer-name" routerLink="/" fragment="top">{{ profile.name }}<span>.</span></a>
+        <p>Built with care and curiosity.</p>
+      </div>
+      <div class="footer-right">
+        <div class="social">
+          @for (link of social; track link.label) {
+            <a [href]="link.url" target="_blank" rel="noopener noreferrer"
+              >{{ link.label }} <span aria-hidden="true">↗</span
+              ><span class="sr-only"> (opens in a new tab)</span></a
+            >
+          }
+        </div>
+        <a class="back-top" routerLink="/" fragment="top">Back to top ↑</a>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span>© {{ year }} {{ profile.name }}</span
+      ><span>DESIGNED WITH PURPOSE</span>
+    </div></app-page-container
+  >
+</footer>
