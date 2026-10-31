@@ -41,7 +41,7 @@ npm run build
 npm test -- --watch=false
 ```
 
-The production browser files are generated in `dist/suji-portfolio/browser`. The test command runs the existing Vitest suite once.
+The production browser files are generated in `dist/suji-portfolio/browser`. The test command runs the existing Vitest suite once; `npm test` runs the configured test runner in its default mode. The current unit tests cover the application shell, home and not-found routes, portfolio content, mobile-menu state and Escape handling, and the reduced-motion directive path. They do not replace browser, keyboard, contrast or end-to-end testing.
 
 ## Project structure
 
@@ -57,11 +57,19 @@ src/
 public/               Static assets copied to the browser build
 ```
 
+## Updating portfolio content
+
+Edit the typed files in `src/app/data/` to update the profile, skills, experience, education, project concepts and social links. Their interfaces are defined in `src/app/core/models/portfolio.ts`. The home page reads these files directly; it does not use a backend or content-management system. The project model currently permits only the `Planned` status, so supporting completed projects will require a model and UI change.
+
+The home and wildcard not-found routes are lazy-loaded in `src/app/app.routes.ts`. The document title and social metadata are in `src/index.html`; the home route also sets its own title. Update both title locations when changing the portfolio title. The site loads fonts from Google Fonts and falls back to system fonts when they are unavailable.
+
 ## Deployment
 
-Deployment has not yet been performed. Netlify is the intended host. The root `netlify.toml` specifies Node.js 24.22.2, the `npm run build` command, and `dist/suji-portfolio/browser` as the publish directory. It also rewrites unmatched paths to `index.html` so Angular can handle direct navigation and refreshes.
+Live portfolio: [sujithkumar-portfolio153.netlify.app](https://sujithkumar-portfolio153.netlify.app/)
 
-When deployment is approved, import the repository into Netlify, verify these build settings, and review a deploy preview before publishing. Test direct routes and refreshes on the hosted site. The SPA fallback returns HTTP 200 for unknown paths even when Angular displays its not-found page; missing asset URLs may also return the app shell. The final domain, canonical URL and social preview image are not yet configured.
+The site is hosted on Netlify. The root `netlify.toml` specifies Node.js 24.22.2, the `npm run build` command, and `dist/suji-portfolio/browser` as the publish directory. It also rewrites unmatched paths to `index.html` so Angular can handle direct navigation and refreshes.
+
+Review deploy previews and test the homepage, direct routes, refreshes and assets after changes. The SPA fallback returns HTTP 200 for unknown paths even when Angular displays its not-found page; missing asset URLs may also return the app shell.
 
 ## Developer
 
